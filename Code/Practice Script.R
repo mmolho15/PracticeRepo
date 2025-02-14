@@ -8,9 +8,9 @@ library(dplyr)
 
 
 #read the annual data from SRM
-FluxData <- read.csv("./Data/AMF_US-SRM_FLUXNET_FULLSET_2004-2023_3-6/AMF_US-SRM_FLUXNET_FULLSET_YY_2004-2023_3-6.csv")
-head (FLUXDATA)
-tail (FLUXDATA)  
+FluxData <- read.csv("./Data/AMF_US-SRM_FLUXNET_FULLSET_2004-2023_3-6/AMF_US-SRM_FLUXNET_FULLSET_YY_2004-2023_3-6.csv", na.strings = -9999)
+head (FluxData)
+tail (FluxData)  
 Temp <- FluxData$TA_F
 
 #plot a figure of soil moisture and Temp
@@ -19,5 +19,9 @@ select(SWC_F_MDS_1, TA_F_MDS)
 
 PracticePlot <-ggplot(data= SoilTemp, aes(x=TA_F_MDS, y = SWC_F_MDS_1))+
 geom_point()
+FluxData <- read.csv("./Data/AMF_US-SRM_FLUXNET_FULLSET_2004-2023_3-6/AMF_US-SRM_FLUXNET_FULLSET_WW_2004-2023_3-6.csv" , na.strings = -9999)
 
+
+
+plot(FluxData$PPFD_IN)
 
